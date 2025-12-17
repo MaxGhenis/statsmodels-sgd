@@ -18,7 +18,7 @@ We present **statsmodels-sgd**, a Python library that implements differentially 
 
 ## Why This Matters
 
-Most widely-used DP libraries focus on ML applications without statistical inference:
+Most widely-used DP libraries focus on ML applications without statistical inference {cite}`opacus2021,diffprivlib2019`:
 
 | Library | DP Coefficients | Standard Errors | Ease of Use |
 |---------|----------------|-----------------|-------------|
@@ -29,10 +29,10 @@ Most widely-used DP libraries focus on ML applications without statistical infer
 | **statsmodels-sgd** | ✅ | ✅ | High |
 
 While principled methods for DP inference exist (see {doc}`chapters/related_work`), they often require:
-- Complex analytical derivations
-- Expensive MCMC computation
-- R rather than Python
-- Deep DP expertise
+- Complex analytical derivations {cite}`sheffet2017differentially,evans2024linked`
+- Expensive MCMC computation {cite}`bernstein2019bayesian`
+- R rather than Python {cite}`privacyunbiased2024`
+- Deep DP expertise {cite}`dwork2014algorithmic`
 
 statsmodels-sgd provides a **practical, Python-native solution** with a familiar statsmodels API.
 

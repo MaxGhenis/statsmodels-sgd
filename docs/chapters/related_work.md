@@ -140,7 +140,7 @@ The bootstrap naturally captures both sources of variability without requiring a
 
 ### 5. Asymptotic Theory for DP Estimators
 
-Recent work derives the asymptotic distribution of DP estimators, enabling classical inference.
+Recent work derives the asymptotic distribution of DP estimators, enabling classical inference {cite}`wang2018revisiting,alabi2022hypothesis`.
 
 **Result** {cite}`wang2018revisiting`:
 
@@ -227,12 +227,12 @@ Use **bootstrap methods**:
 
 ## Open Problems
 
-Several challenges remain in DP inference:
+Several challenges remain in DP inference {cite}`drechsler2023linking,awan2023adaptive`:
 
-1. **Finite-sample guarantees**: Most theory is asymptotic
+1. **Finite-sample guarantees**: Most theory is asymptotic {cite}`wang2019dpinfer`
 2. **Heteroskedasticity**: Handling non-constant variance under DP
 3. **Model selection**: Information criteria under DP
-4. **Multiple testing**: Adjusting for many hypotheses
+4. **Multiple testing**: Adjusting for many hypotheses {cite}`avella2021dpinference`
 5. **Robustness**: Performance under model misspecification
 
 ## Conclusion

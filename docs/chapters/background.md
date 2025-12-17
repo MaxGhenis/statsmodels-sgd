@@ -30,11 +30,11 @@ This limitation severely restricts the use of differential privacy in:
 
 ## Why Standard Errors Matter Under DP
 
-When we add noise for differential privacy, we fundamentally change the distribution of our estimates. Consider the OLS estimator:
+When we add noise for differential privacy, we fundamentally change the distribution of our estimates {cite}`king2024dpd`. Consider the OLS estimator:
 
 $$\hat{\beta}_{DP} = \hat{\beta}_{OLS} + \text{Noise}$$
 
-The variance of this estimator is:
+The variance of this estimator is {cite}`evans2024linked`:
 
 $$\text{Var}(\hat{\beta}_{DP}) = \text{Var}(\hat{\beta}_{OLS}) + \text{Var}(\text{Noise})$$
 
@@ -56,7 +56,7 @@ Our approach addresses this gap by:
 ## Theoretical Foundation
 
 ### Differential Privacy Definition
-A randomized algorithm $\mathcal{M}$ satisfies $(ε, δ)$-differential privacy if for all datasets $D$ and $D'$ differing in one record, and all subsets $S$ of outputs:
+A randomized algorithm $\mathcal{M}$ satisfies $(ε, δ)$-differential privacy {cite}`dwork2006differential,dwork2014algorithmic` if for all datasets $D$ and $D'$ differing in one record, and all subsets $S$ of outputs:
 
 $$P[\mathcal{M}(D) \in S] \leq e^ε \cdot P[\mathcal{M}(D') \in S] + δ$$
 
@@ -74,7 +74,7 @@ The DP-SGD algorithm {cite}`abadi2016deep` achieves differential privacy through
 
 ### Standard Error Adjustment
 
-For OLS under DP-SGD, we propose the adjusted standard error formula:
+For OLS under DP-SGD, we propose an adjusted standard error formula similar to {cite:t}`evans2024linked`:
 
 $$SE_{DP}(\hat{\beta}_j) = SE_{OLS}(\hat{\beta}_j) \cdot \sqrt{1 + \frac{\sigma^2_{noise}}{\sigma^2_{data}}}$$
 
