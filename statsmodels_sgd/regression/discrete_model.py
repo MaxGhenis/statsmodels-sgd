@@ -49,7 +49,7 @@ class Logit(nn.Module):
 
         optimizer = optim.Adam(self.parameters(), lr=self.learning_rate)
         scheduler = optim.lr_scheduler.ReduceLROnPlateau(
-            optimizer, mode="min", factor=0.5, patience=50, verbose=False
+            optimizer, mode="min", factor=0.5, patience=50
         )
 
         prev_loss = float("inf")

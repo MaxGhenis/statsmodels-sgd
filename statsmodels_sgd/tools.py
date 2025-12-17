@@ -26,7 +26,7 @@ def calculate_standard_errors(
         residuals = y - y_pred
         if sample_weight is not None:
             mse = np.average(residuals**2, weights=sample_weight.squeeze())
-            X_weighted = X_with_intercept * np.sqrt(sample_weight)
+            X_weighted = X_with_intercept * np.sqrt(sample_weight).reshape(-1, 1)
         else:
             mse = np.mean(residuals**2)
             X_weighted = X_with_intercept

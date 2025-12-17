@@ -1,0 +1,50 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: chapters/background
+  title: Background & Motivation
+- file: chapters/methodology
+  title: Methodology
+  sections:
+  - file: chapters/dp_sgd
+    title: DP-SGD Algorithm
+  - file: chapters/privacy_accounting
+    title: Privacy Accounting
+  - file: chapters/standard_errors
+    title: Standard Errors under DP
+- file: chapters/implementation
+  title: Implementation
+  sections:
+  - file: api/quickstart
+    title: Quick Start
+  - file: api/ols
+    title: OLS Regression
+  - file: api/logit
+    title: Logistic Regression
+- file: examples/index
+  title: Examples
+  sections:
+  - file: examples/basic_ols
+    title: Basic OLS with DP
+  - file: examples/privacy_budget
+    title: Managing Privacy Budget
+  - file: examples/weighted_regression
+    title: Weighted Regression
+- file: simulations/index
+  title: Simulations & Results
+  sections:
+  - file: simulations/privacy_utility
+    title: Privacy-Utility Tradeoffs
+  - file: simulations/comparison
+    title: Comparison with Non-DP Methods
+  - file: simulations/standard_errors
+    title: Standard Error Analysis
+- file: chapters/conclusion
+  title: Conclusion
+- file: api/reference
+  title: API Reference
+- file: references
+  title: References
