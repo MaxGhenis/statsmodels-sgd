@@ -1,0 +1,85 @@
+# Jupyter Book 2.0 configuration
+# See https://mystmd.org/guide/frontmatter for full documentation
+
+version: 1
+project:
+  title: Differentially Private Statistical Models with SGD
+  subtitle: Combining Privacy Guarantees with Statistical Inference
+  authors:
+    - name: Max Ghenis
+      email: max@policyengine.org
+      affiliations:
+        - PolicyEngine
+  github: https://github.com/PolicyEngine/statsmodels-sgd
+  license: MIT
+  copyright: "2024"
+
+  # Keywords for search
+  keywords:
+    - differential privacy
+    - linear regression
+    - statistical inference
+    - standard errors
+    - stochastic gradient descent
+    - privacy-preserving machine learning
+
+  # Bibliography
+  bibliography:
+    - references.bib
+
+  # Table of contents
+  toc:
+    - file: intro.md
+    - title: Background
+      children:
+        - file: chapters/background.md
+        - file: chapters/related_work.md
+    - title: Methodology
+      children:
+        - file: chapters/methodology.md
+        - file: chapters/dp_sgd.md
+        - file: chapters/privacy_accounting.md
+        - file: chapters/standard_errors.md
+    - title: Implementation
+      children:
+        - file: api/quickstart.md
+        - file: api/ols.md
+        - file: api/logit.md
+    - title: Examples
+      children:
+        - file: examples/basic_ols.md
+        - file: examples/privacy_budget.md
+        - file: examples/weighted_regression.md
+    - title: Simulations
+      children:
+        - file: simulations/privacy_utility.ipynb
+        - file: simulations/comparison.md
+        - file: simulations/standard_errors.md
+    - file: chapters/conclusion.md
+    - file: api/reference.md
+    - file: references.md
+
+  # Export settings
+  exports:
+    - format: pdf
+      template: plain_latex_book
+      output: exports/statsmodels-sgd.pdf
+
+site:
+  title: statsmodels-sgd Documentation
+  template: book-theme
+  options:
+    logo: logo.png
+    favicon: favicon.ico
+  nav:
+    - title: GitHub
+      url: https://github.com/PolicyEngine/statsmodels-sgd
+    - title: PyPI
+      url: https://pypi.org/project/statsmodels-sgd/
+
+# Build settings
+build:
+  execute:
+    enabled: true
+    cache: true
+    timeout: 600

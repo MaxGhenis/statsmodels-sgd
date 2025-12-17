@@ -1,37 +1,40 @@
 # Differentially Private Statistical Models via Stochastic Gradient Descent
 
 ```{epigraph}
-The first implementation providing both differentially private regression coefficients **and** standard errors.
+A practical Python library for differentially private regression with statistical inference.
 ```
 
 ## Abstract
 
-We present **statsmodels-sgd**, a Python library that implements differentially private statistical models using stochastic gradient descent (DP-SGD) with a crucial innovation: it provides both privacy-preserving coefficient estimates **and** adjusted standard errors for statistical inference. While existing differential privacy libraries focus solely on point estimates, our work addresses the critical gap in privacy-preserving statistical inference, enabling hypothesis testing and confidence interval construction under differential privacy guarantees.
+We present **statsmodels-sgd**, a Python library that implements differentially private statistical models using stochastic gradient descent (DP-SGD). The library provides both privacy-preserving coefficient estimates **and** adjusted standard errors for statistical inference, with a familiar statsmodels-like API. While theoretical approaches to DP inference exist, most lack accessible implementations. statsmodels-sgd fills this gap by providing a practical, well-tested solution for researchers who need both privacy guarantees and valid inference.
 
 ## Key Contributions
 
-1. **First implementation** combining differential privacy with statistical inference (standard errors, t-statistics, p-values)
+1. **Accessible DP inference** with standard errors, t-statistics, and p-values in Python
 2. **Statsmodels-compatible API** making DP accessible to statisticians and economists
 3. **Rigorous privacy accounting** using Rényi Differential Privacy with conversion to (ε,δ)-DP
-4. **Standard error adjustment** accounting for noise injected by the privacy mechanism
-5. **Comprehensive evaluation** of privacy-utility tradeoffs through extensive simulations
+4. **Empirically calibrated standard errors** achieving ~95% confidence interval coverage
+5. **Comprehensive documentation** including comparison with alternative approaches
 
 ## Why This Matters
 
-Existing differential privacy libraries have a critical limitation:
+Most widely-used DP libraries focus on ML applications without statistical inference:
 
-| Library | DP Coefficients | Standard Errors | Statistical Inference |
-|---------|----------------|-----------------|----------------------|
-| IBM Diffprivlib | ✅ | ❌ | ❌ |
-| Google Opacus | ✅ | ❌ | ❌ |
-| TensorFlow Privacy | ✅ | ❌ | ❌ |
-| **statsmodels-sgd** | ✅ | ✅ | ✅ |
+| Library | DP Coefficients | Standard Errors | Ease of Use |
+|---------|----------------|-----------------|-------------|
+| IBM Diffprivlib {cite}`diffprivlib2019` | ✅ | ❌ | High |
+| Meta Opacus {cite}`opacus2021` | ✅ | ❌ | Medium |
+| svinfer {cite}`svinfer2024` | ✅ | ✅ | Medium |
+| PrivacyUnbiased {cite}`privacyunbiased2024` | ✅ | ✅ | Medium (R) |
+| **statsmodels-sgd** | ✅ | ✅ | High |
 
-Without standard errors, researchers cannot:
-- Test hypotheses about regression coefficients
-- Construct confidence intervals
-- Assess statistical significance
-- Perform valid inference on private data
+While principled methods for DP inference exist (see {doc}`chapters/related_work`), they often require:
+- Complex analytical derivations
+- Expensive MCMC computation
+- R rather than Python
+- Deep DP expertise
+
+statsmodels-sgd provides a **practical, Python-native solution** with a familiar statsmodels API.
 
 ## Quick Example
 

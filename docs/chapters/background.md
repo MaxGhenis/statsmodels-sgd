@@ -104,14 +104,41 @@ This adjustment ensures valid inference under differential privacy.
 
 ## Comparison with Alternatives
 
-| Method | Privacy | Coefficients | Std Errors | Efficiency |
-|--------|---------|--------------|------------|------------|
-| Output Perturbation | ✅ | ✅ | ❌ | High |
-| Objective Perturbation | ✅ | ✅ | ❌ | Medium |
-| Sufficient Statistics | ✅ | ✅ | ❌ | High |
-| **DP-SGD (Ours)** | ✅ | ✅ | ✅ | Medium |
+| Method | True DP | Coefficients | Std Errors | Efficiency | Implementation |
+|--------|---------|--------------|------------|------------|----------------|
+| Noisy Sufficient Statistics {cite}`sheffet2017differentially` | ✅ | ✅ | ✅* | High | diffprivlib (partial) |
+| Bayesian DP {cite}`bernstein2019bayesian` | ✅ | ✅ | ✅ | Low (MCMC) | Limited |
+| Measurement Error {cite}`king2024dpd` | ✅ | ✅ | ✅ | High | svinfer, PrivacyUnbiased |
+| Bootstrap {cite}`ferrando2024bootstrap` | ✅ | ✅ | ✅ | Low | Limited |
+| **DP-SGD (This work)** | ✅ | ✅ | ✅† | Medium | statsmodels-sgd |
 
-While other methods may be more efficient for point estimates alone, only our approach provides the complete statistical inference framework needed for research.
+*\*Analytical variance formulas exist but require careful derivation*
+*†Calibrated via simulation rather than analytical formulas*
+
+### Method Details
+
+**Noisy Sufficient Statistics** is the most efficient approach for OLS specifically:
+- Adds noise once to $X'X$ and $X'y$
+- Solves $\hat{\beta} = (X'X + \text{noise})^{-1}(X'y + \text{noise})$
+- Variance formulas available {cite}`evans2024linked` but not widely implemented
+- Requires data bounds or they must be estimated privately
+
+**Bayesian Inference** {cite}`bernstein2019bayesian` provides proper posterior uncertainty:
+- Models DP noise as part of generative process
+- MCMC gives credible intervals
+- Computationally expensive
+
+**Measurement Error Correction** {cite}`king2024dpd` treats DP as classical measurement error:
+- Well-established statistical theory
+- Available implementations (svinfer, PrivacyUnbiased)
+- Produces "appropriately larger standard errors"
+
+**DP-SGD (Our approach)** prioritizes usability:
+- Works with any loss function (OLS, logistic, etc.)
+- Standard errors calibrated empirically
+- Familiar statsmodels-like API
+
+See the [Related Work chapter](related_work.md) for detailed comparison.
 
 ## Summary
 

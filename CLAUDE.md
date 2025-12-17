@@ -197,11 +197,24 @@ GitHub Actions workflow (`.github/workflows/ci-cd.yaml`) runs on push and PR:
 
 ## Documentation
 
-Documentation is built with Jupyter Book and located in `statsmodels_sgd/docs/`:
-- `installation.md`: Installation guide
-- `ols-example.md`: OLS usage example
-- `logit-example.md`: Logit usage example
-- `cps-asec-example.md`: Real-world example with CPS-ASEC data
+Documentation is built with **Jupyter Book 2.0 (MyST-MD)** and located in `docs/`:
+
+```bash
+# Build docs with MyST
+cd docs
+myst build
+
+# Or use the legacy JB1 command (also works)
+jupyter-book build .
+```
+
+Key documentation files:
+- `intro.md`: Main landing page
+- `chapters/background.md`: Background and motivation
+- `chapters/related_work.md`: Comparison with other DP inference methods
+- `simulations/privacy_utility.ipynb`: Privacy-utility tradeoff analysis
+
+References are in BibTeX format in `docs/references.bib`.
 
 ## CRITICAL: Accuracy and Verification Requirements
 
