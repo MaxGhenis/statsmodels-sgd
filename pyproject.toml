@@ -5,7 +5,7 @@ description = "A statsmodels-like package using SGD with gradient clipping for d
 authors = [{name = "Max Ghenis", email = "max@policyengine.org"}]
 license = {file = "LICENSE"}
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.11"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
@@ -44,7 +44,7 @@ readme = "README.md"
 packages = [{include = "statsmodels_sgd"}]
 
 [tool.poetry.dependencies]
-python = ">=3.8"
+python = ">=3.11"
 numpy = "*"
 pandas = "*"
 statsmodels = "*"
